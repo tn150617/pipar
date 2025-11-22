@@ -29,7 +29,7 @@
 
             display-name = "default";
             bindings = <
-&kp TAB         &kp LEFT_WIN    &to 1
+&kp A           &kp LEFT_WIN    &to 1
 &kp BACKSPACE   &kp UP_ARROW    &kp ENTER
 &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
             >;
