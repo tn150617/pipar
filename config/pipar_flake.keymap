@@ -18,6 +18,15 @@
         triggers-per-rotation = <24>;
     };
 
+    macros {
+        new_macro: new_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none>;
+            label = "NEW_MACRO";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -58,6 +67,14 @@
 &kp C_PAUSE  &kp PRINTSCREEN  &to 0
 &kp INS      &kp HOME         &kp PG_UP
 &kp DELETE   &kp END          &kp PAGE_DOWN
+            >;
+        };
+
+        layer_3 {
+            bindings = <
+&kp A   &kp B   &trans
+&trans  &trans  &trans
+&trans  &trans  &trans
             >;
         };
     };
