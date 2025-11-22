@@ -27,6 +27,22 @@
         };
     };
 
+    behaviors {
+        b_doubletap: b_doubletap {
+            compatible = "zmk,behavior-tap-dance";
+            label = "B_DOUBLETAP";
+            #binding-cells = <0>;
+            bindings = <&kp MINUS>, <&kp UNDER>;
+        };
+
+        c_doubletap: c_doubletap {
+            compatible = "zmk,behavior-tap-dance";
+            label = "C_DOUBLETAP";
+            #binding-cells = <0>;
+            bindings = <&kp C>, <&new_macro>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -38,7 +54,7 @@
 
             display-name = "default";
             bindings = <
-&kp B           &kp LEFT_WIN    &to 1
+&b_doubletap    &kp LEFT_WIN    &to 1
 &kp BACKSPACE   &kp UP_ARROW    &kp ENTER
 &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
             >;
@@ -64,9 +80,9 @@
 
         layer_2 {
             bindings = <
-&kp C_PAUSE  &new_macro  &to 0
-&kp INS      &kp HOME    &kp PG_UP
-&kp DELETE   &kp END     &kp PAGE_DOWN
+&kp C_PAUSE  &c_doubletap  &to 0
+&kp INS      &kp HOME      &kp PG_UP
+&kp DELETE   &kp END       &kp PAGE_DOWN
             >;
         };
     };
