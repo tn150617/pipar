@@ -32,6 +32,27 @@
             bindings = <&none &kp Y &kp O &kp U &kp T &kp U &kp B &kp E &kp DOT &kp C &kp O &kp M>;
             label = "YT";
         };
+
+        keyboardtest: keyboard {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp H &kp T &kp T &kp P &kp S &kp COLON &kp FSLH &kp FSLH &kp E &kp N &kp DOT &kp K &kp E &kp Y &kp MINUS &kp T &kp E &kp S &kp T &kp DOT &kp R &kp U &kp FSLH>;
+            label = "KEYBOARD";
+        };
+
+        keyboardedit: keyboardedit {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp H &kp T &kp T &kp P &kp S &kp COLON &kp FSLH &kp FSLH &kp N &kp I &kp C &kp K &kp C &kp O &kp U &kp T &kp S &kp O &kp S &kp DOT &kp G &kp I &kp T &kp H &kp U &kp B &kp DOT &kp I &kp O &kp FSLH &kp K &kp E &kp Y &kp M &kp A &kp P &kp MINUS &kp E &kp D &kp I &kp T &kp O &kp R &kp FSLH>;
+            label = "KEYBOARDEDIT";
+        };
+
+        git: git {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp H &kp T &kp T &kp P &kp S &kp COLON &kp FSLH &kp FSLH &kp N &kp I &kp C &kp K &kp C &kp O &kp U &kp T &kp S &kp O &kp S &kp DOT &kp G &kp I &kp T &kp H &kp U &kp B &kp DOT &kp I &kp O &kp FSLH &kp K &kp E &kp Y &kp M &kp A &kp P &kp MINUS &kp E &kp D &kp I &kp T &kp O &kp R &kp FSLH &kp RET>;
+            label = "GIT";
+        };
     };
 
     behaviors {
@@ -47,6 +68,20 @@
             label = "C_DOUBLETAP";
             #binding-cells = <0>;
             bindings = <&kp C>, <&yt>;
+        };
+
+        k_multipletap: k_multipletap {
+            compatible = "zmk,behavior-tap-dance";
+            label = "K_MULTIPLETAP";
+            #binding-cells = <0>;
+            bindings = <&kp K>, <&keyboardtest>, <&keyboardedit>;
+        };
+
+        g_doubletap: g_doubletap {
+            compatible = "zmk,behavior-tap-dance";
+            label = "G_DOUBLETAP";
+            #binding-cells = <0>;
+            bindings = <&kp G>, <&git>;
         };
     };
 
@@ -105,9 +140,9 @@
 
         layer_3 {
             bindings = <
-&kp A   &kp H   &to 0
-&trans  &trans  &trans
-&trans  &trans  &trans
+&k_multipletap  &git    &to 0
+&trans          &trans  &trans
+&trans          &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LWIN RIGHT_WIN>;
