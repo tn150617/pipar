@@ -25,6 +25,13 @@
             bindings = <&none &kp LS(H) &kp A &kp P &kp P &kp Y &kp SPACE &kp LS(B) &kp I &kp R &kp T &kp H &kp D &kp A &kp Y>;
             label = "NEW_MACRO";
         };
+
+        yt: yt {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp Y &kp O &kp U &kp T &kp U &kp B &kp E &kp DOT &kp C &kp O &kp M>;
+            label = "YT";
+        };
     };
 
     behaviors {
@@ -39,7 +46,17 @@
             compatible = "zmk,behavior-tap-dance";
             label = "C_DOUBLETAP";
             #binding-cells = <0>;
-            bindings = <&kp C>, <&new_macro>;
+            bindings = <&kp C>, <&yt>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        zcob {
+            bindings = <&kp ESCAPE>;
+            key-positions = <6 8>;
+            layers = <2>;
         };
     };
 
@@ -83,6 +100,14 @@
 &kp C_PAUSE  &c_doubletap  &to 0
 &kp INS      &kp HOME      &kp PG_UP
 &kp DELETE   &kp END       &kp PAGE_DOWN
+            >;
+        };
+
+        layer_3 {
+            bindings = <
+&kp A   &kp H   &trans
+&trans  &trans  &trans
+&trans  &trans  &trans
             >;
         };
     };
