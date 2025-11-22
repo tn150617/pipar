@@ -97,7 +97,7 @@
 
         layer_2 {
             bindings = <
-&kp C_PAUSE  &c_doubletap  &to 0
+&kp C_PAUSE  &c_doubletap  &to 3
 &kp INS      &kp HOME      &kp PG_UP
 &kp DELETE   &kp END       &kp PAGE_DOWN
             >;
@@ -105,10 +105,12 @@
 
         layer_3 {
             bindings = <
-&kp A   &kp H   &trans
+&kp A   &kp H   &to 0
 &trans  &trans  &trans
 &trans  &trans  &trans
             >;
+
+            sensor-bindings = <&inc_dec_kp LWIN RIGHT_WIN>;
         };
     };
 };
