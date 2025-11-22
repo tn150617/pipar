@@ -18,6 +18,15 @@
         triggers-per-rotation = <24>;
     };
 
+    macros {
+        new_macro: new_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp LS(H) &kp A &kp P &kp P &kp Y &kp SPACE &kp LS(B) &kp I &kp R &kp T &kp H &kp D &kp A &kp Y>;
+            label = "NEW_MACRO";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -29,7 +38,7 @@
 
             display-name = "default";
             bindings = <
-&kp A           &kp LEFT_WIN    &to 1
+&kp B           &kp LEFT_WIN    &to 1
 &kp BACKSPACE   &kp UP_ARROW    &kp ENTER
 &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
             >;
@@ -55,9 +64,9 @@
 
         layer_2 {
             bindings = <
-&kp C_PAUSE  &kp PRINTSCREEN  &to 0
-&kp INS      &kp HOME         &kp PG_UP
-&kp DELETE   &kp END          &kp PAGE_DOWN
+&kp C_PAUSE  &new_macro  &to 0
+&kp INS      &kp HOME    &kp PG_UP
+&kp DELETE   &kp END     &kp PAGE_DOWN
             >;
         };
     };
