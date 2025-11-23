@@ -29,28 +29,28 @@
         yt: yt {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&none &kp Y &kp O &kp U &kp T &kp U &kp B &kp E &kp DOT &kp C &kp O &kp M>;
+            bindings = <&kp Y &kp O &kp U &kp T &kp U &kp B &kp E &kp DOT &kp C &kp O &kp M>;
             label = "YT";
         };
 
         keyboardtest: keyboard {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&none &kp H &kp T &kp T &kp P &kp S &kp COLON &kp FSLH &kp FSLH &kp E &kp N &kp DOT &kp K &kp E &kp Y &kp MINUS &kp T &kp E &kp S &kp T &kp DOT &kp R &kp U &kp FSLH>;
+            bindings = <&kp E &kp N &kp DOT &kp K &kp E &kp Y &kp TAB &kp ENTER>;
             label = "KEYBOARD";
         };
 
         keyboardedit: keyboardedit {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&none &kp H &kp T &kp T &kp P &kp S &kp COLON &kp FSLH &kp FSLH &kp N &kp I &kp C &kp K &kp C &kp O &kp U &kp T &kp S &kp O &kp S &kp DOT &kp G &kp I &kp T &kp H &kp U &kp B &kp DOT &kp I &kp O &kp FSLH &kp K &kp E &kp Y &kp M &kp A &kp P &kp MINUS &kp E &kp D &kp I &kp T &kp O &kp R &kp FSLH>;
+            bindings = <&kp N &kp I &kp C &kp K &kp C &kp O &kp U &kp T &kp TAB &kp RET>;
             label = "KEYBOARDEDIT";
         };
 
         git: git {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&none &kp H &kp T &kp T &kp P &kp S &kp COLON &kp FSLH &kp FSLH &kp N &kp I &kp C &kp K &kp C &kp O &kp U &kp T &kp S &kp O &kp S &kp DOT &kp G &kp I &kp T &kp H &kp U &kp B &kp DOT &kp I &kp O &kp FSLH &kp K &kp E &kp Y &kp M &kp A &kp P &kp MINUS &kp E &kp D &kp I &kp T &kp O &kp R &kp FSLH &kp RET>;
+            bindings = <&kp G &kp I &kp T &kp H &kp U &kp B &kp DOT &kp C &kp O &kp M &kp TAB>;
             label = "GIT";
         };
     };
@@ -140,12 +140,12 @@
 
         layer_3 {
             bindings = <
-&k_multipletap  &git    &to 0
-&trans          &trans  &trans
-&trans          &trans  &trans
+&k_multipletap  &g_doubletap  &to 0
+&trans          &trans        &trans
+&trans          &trans        &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp LWIN RIGHT_WIN>;
+            sensor-bindings = <&inc_dec_kp C_AL_NEXT_TASK C_AL_PREVIOUS_TASK>;
         };
     };
 };
