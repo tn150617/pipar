@@ -53,6 +53,34 @@
             bindings = <&kp G &kp I &kp T &kp H &kp U &kp B &kp DOT &kp C &kp O &kp M &kp TAB>;
             label = "GIT";
         };
+
+        macrocopy: macrocopy {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(C)>;
+            label = "MACROCOPY";
+        };
+
+        macropaste: macropaste {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(V)>;
+            label = "MACROPASTE";
+        };
+
+        macrocut: macrocut {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(X)>;
+            label = "MACROCUT";
+        };
+
+        macrodl_folder: macrodl_folder {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LS(D))>;
+            label = "MACRODL_FOLDER";
+        };
     };
 
     behaviors {
@@ -82,6 +110,27 @@
             label = "G_DOUBLETAP";
             #binding-cells = <0>;
             bindings = <&kp G>, <&git>;
+        };
+
+        x_tapdance: x_tapdance {
+            compatible = "zmk,behavior-tap-dance";
+            label = "X_TAPDANCE";
+            #binding-cells = <0>;
+            bindings = <&kp X>, <&macrocut>;
+        };
+
+        c_tapdance: c_tapdance {
+            compatible = "zmk,behavior-tap-dance";
+            label = "C_TAPDANCE";
+            #binding-cells = <0>;
+            bindings = <&kp C>, <&macrocopy>;
+        };
+
+        v_tapdance: v_tapdance {
+            compatible = "zmk,behavior-tap-dance";
+            label = "V_TAPDANCE";
+            #binding-cells = <0>;
+            bindings = <&kp V>, <&macropaste>;
         };
     };
 
@@ -140,12 +189,12 @@
 
         layer_3 {
             bindings = <
-&k_multipletap  &g_doubletap  &to 0
-&trans          &trans        &trans
-&trans          &trans        &trans
+&c_tapdance      &v_tapdance  &to 0
+&x_tapdance      &trans       &trans
+&macrodl_folder  &trans       &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_AL_NEXT_TASK C_AL_PREVIOUS_TASK>;
+            sensor-bindings = <&inc_dec_kp LEFT_ARROW RIGHT>;
         };
     };
 };
